@@ -1,6 +1,6 @@
-class Grimpan {
+class IEGrimpan {
 
-    private static instance: Grimpan;
+    private static instance: IEGrimpan;
 
     private constructor(canvas: HTMLElement | null) {
         if(!canvas || !(canvas instanceof HTMLCanvasElement)) {
@@ -14,11 +14,11 @@ class Grimpan {
 
     static getInstance() {
         if(!this.instance) {
-            this.instance = new Grimpan(document.querySelector('#canvas'))
+            this.instance = new IEGrimpan(document.querySelector('#canvas'))
         }
 
         return this.instance;
     }
 }
 
-export default Grimpan;
+export default IEGrimpan;
