@@ -16,7 +16,7 @@ function grimpanFactory(type: string) {
 function main() {
     const factory = ChromeGrimpanFactory;
     const grimpan = factory.createGrimpan();
-    const grimpanMenu = factory.createGrimpanMenu(grimpan);
+    const grimpanMenu = factory.createGrimpanMenu(grimpan, document.querySelector('#menu')!);
     const grimpanHistory = factory.createGrimpanHistory(grimpan);
     grimpan.initialize();
     grimpanMenu.initialize();

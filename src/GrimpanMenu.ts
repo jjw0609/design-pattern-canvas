@@ -40,7 +40,7 @@ export class ChromeGrimpanMenu extends GrimpanMenu {
     private static instance: ChromeGrimpanMenu;
 
     override initialize(types: BtnType[]): void {
-
+        types.forEach(this.drawButtonByType.bind(this));
     }
 
     drawButtonByType(type: BtnType) {
