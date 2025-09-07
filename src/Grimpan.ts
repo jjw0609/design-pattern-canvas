@@ -28,6 +28,9 @@ export abstract class Grimpan {
     }
 
     abstract initialize(option: GrimpanOption): void
+    abstract onMousedown(e: MouseEvent): void
+    abstract onMousemove(e: MouseEvent): void
+    abstract onMouseup(e: MouseEvent): void
 
     static getInstance() {}
 }
@@ -57,6 +60,20 @@ export class ChromeGrimpan extends Grimpan {
                 return;
             }
         });
+        this.canvas.addEventListener('mousedown', this.onMousedown.bind(this));
+        this.canvas.addEventListener('mousemove', this.onMousemove.bind(this));
+        this.canvas.addEventListener('mouseup', this.onMouseup.bind(this));
+        this.canvas.addEventListener('mouseleave', this.onMouseup.bind(this));
+    }
+
+    override onMousedown(e: MouseEvent): void {
+        this.mode.mousedown(e);
+    }
+    override onMousemove(e: MouseEvent): void {
+        this.mode.mousemove(e);
+    }
+    override onMouseup(e: MouseEvent): void {
+        this.mode.mouseup(e);
     }
 
     static override getInstance() {
@@ -71,6 +88,16 @@ export class IEGrimpan extends Grimpan {
     private static instance: IEGrimpan;
 
     initialize() {}
+
+    override onMousedown(e: MouseEvent): void {
+
+    }
+    override onMousemove(e: MouseEvent): void {
+
+    }
+    override onMouseup(e: MouseEvent): void {
+
+    }
 
     static override getInstance() {
         if (!this.instance) {
